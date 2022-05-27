@@ -1,3 +1,9 @@
+button{
+  border: 0;
+  padding: 0.1rem 1rem;
+  cursor: pointer;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -11,3 +17,17 @@
   width: 70vw;
   margin: 2rem auto;
 }
+
+
+.bg-green{
+  background-color: green;
+}
+
+.bg-danger{
+  background-color: red;
+}
+
+.todo-list li > *{
+margin: 3rem;
+}
+
