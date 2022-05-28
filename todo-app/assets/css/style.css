@@ -1,4 +1,4 @@
-button{
+button {
   border: 0;
   padding: 0.1rem 1rem;
   cursor: pointer;
@@ -18,23 +18,18 @@ button{
   margin: 2rem auto;
 }
 
-
-.bg-green{
+.bg-green {
   background-color: green;
 }
 
-.bg-danger{
+.bg-danger {
   background-color: red;
 }
 
-.todo-list li > *{
-margin: 3rem;
+.todo-list li > * {
+  margin: 3rem;
 }
 
-
-.line-through{
+.line-through {
   text-decoration: line-through 2px red;
 }
-
-
-
