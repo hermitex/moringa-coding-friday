@@ -31,3 +31,10 @@ button{
 margin: 3rem;
 }
 
+
+.line-through{
+  text-decoration: line-through 2px red;
+}
+
+
+

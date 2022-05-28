@@ -1,3 +1,4 @@
+
 // Grab the input element
 const inputElem = document.querySelector(".input");
 // Grab the todo ul
@@ -5,15 +6,6 @@ const todoContainer = document.querySelector(".todo-list");
 // Grab the submit button
 const submitBtn = document.querySelector(".add-todo");
 
-// Grab the edit button
-const editBtn = document.querySelector(".edit")
-
-// Grab the delete button
-const deleteBtn = document.querySelector(".delete")
-
-
-// Grab the checkbox 
-const checkBox = document.querySelector(".check")
 
 
 // submit button default css settings
@@ -52,6 +44,7 @@ const addTodoItem = (todoItem) => {
   // Create the delete and edit buttons and checkbox
   let deletBtn = document.createElement('button');
   deletBtn.textContent = "Delete";
+  deletBtn.addEventListener('click', deleteTodoItem);
   deletBtn.classList.add('bg-danger');
 
 
@@ -60,6 +53,7 @@ const addTodoItem = (todoItem) => {
   editBtn.classList.add('bg-green');
 
   let check = document.createElement('input');
+  check.addEventListener('click', markAsDone);
   check.type = 'checkbox'
   check.classList.add('check')
 
@@ -82,4 +76,24 @@ submitBtn.addEventListener("click", () => {
 });
 
 
-// 
+
+const deleteTodoItem = (e) => {
+  let targetBtn = e.target;
+  let parent = targetBtn.parentNode.parentNode;
+  parent.parentNode.removeChild(parent)  
+}
+
+
+
+
+const markAsDone = (e) => {
+  let targetBtn = e.target;
+  let parent = targetBtn.parentNode;
+  if (!parent.parentNode.classList.contains('line-through') && targetBtn.checked) {
+    parent.parentNode.classList.add('line-through');
+  } else {
+    parent.parentNode.classList.remove('line-through');
+  }
+}
+
+
