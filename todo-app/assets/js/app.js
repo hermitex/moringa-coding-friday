@@ -5,38 +5,33 @@ const todoContainer = document.querySelector(".todo-list");
 // Grab the submit button
 const submitBtn = document.querySelector(".add-todo");
 
-// submit button default css settings
-submitBtn.style.border = "none";
-submitBtn.style.padding = "0.5rem 0";
-submitBtn.style.backgroundColor = "gray";
-submitBtn.style.color = "#0a0a0a";
-submitBtn.style.cursor = "progress";
+submitBtn.classList.add("intial-submit-btn-settings");
+
 
 // Listens for click input and invokes addTodoItem()
-inputElem.addEventListener("input", function (e) {
+inputElem.addEventListener("input",  (e) => {
   let userInput = e.target.value;
   if (userInput != "") {
     submitBtn.disabled = false;
-    submitBtn.style.backgroundColor = "green";
-    submitBtn.style.color = "#fff";
-    submitBtn.style.cursor = "pointer";
+    submitBtn.classList.add("submit-btn-success");
+    submitBtn.classList.remove("submit-btn-fail");
   } else {
     submitBtn.disabled = true;
-    submitBtn.style.border = "none";
-    submitBtn.style.padding = "0.5rem 0";
-    submitBtn.style.backgroundColor = "gray";
-    submitBtn.style.color = "#0a0a0a";
-    submitBtn.style.cursor = "progress";
+    submitBtn.classList.add("submit-btn-fail");
+    submitBtn.classList.remove("submit-btn-success");    
   }
 });
 
 // To add todo Item to the todo list
 const addTodoItem = (todoItem) => {
-  let newLi = document.createElement("li"); //<li> </li>
-  newLi.textContent = todoItem;
+  let newTodoItem = document.createElement("tr"); //<tr> </tr>
 
-  // Create span to hold action buttons
-  let controlContainer = document.createElement("span"); //<span></span>
+  let newTodoItemData = document.createElement("td");
+  newTodoItemData.textContent = todoItem;
+
+  let newTodoEditData = document.createElement("td");
+  let newTodoDeleteData = document.createElement("td");
+  let newTodoCheckData = document.createElement("td");
 
   // Create the delete and edit buttons and checkbox
   let deletBtn = document.createElement("button");
@@ -53,26 +48,29 @@ const addTodoItem = (todoItem) => {
   check.type = "checkbox";
   check.classList.add("check");
 
-  controlContainer.appendChild(editBtn);
-  controlContainer.appendChild(deletBtn);
-  controlContainer.appendChild(check);
+  newTodoEditData.appendChild(editBtn);
+  newTodoDeleteData.appendChild(deletBtn);
+  newTodoCheckData.appendChild(check);
 
-  newLi.appendChild(controlContainer);
+  newTodoItem.appendChild(newTodoItemData);
+  newTodoItem.appendChild(newTodoEditData);
+  newTodoItem.appendChild(newTodoDeleteData);
+  newTodoItem.appendChild(newTodoCheckData);
 
-  todoContainer.appendChild(newLi);
-  // todoContainer.innerHTML = `<li>${todoItem}</li>`;
+  todoContainer.appendChild(newTodoItem);
 };
 
 // Listens for click events and invokes addTodoItem()
 submitBtn.addEventListener("click", () => {
   let userInput = inputElem.value;
   addTodoItem(userInput);
-});
+})
 
-const deleteTodoItem = (e) => {
+const deleteTodoItem = (e) => {  
   let targetBtn = e.target;
-  let parent = targetBtn.parentNode.parentNode;
-  parent.parentNode.removeChild(parent);
+  let isDeleteOk = confirm("Are you sure you want to delete this item?"); 
+  let parent = targetBtn.parentNode.parentNode; 
+  isDeleteOk ? parent.parentNode.removeChild(parent) : "";
 };
 
 const markAsDone = (e) => {
