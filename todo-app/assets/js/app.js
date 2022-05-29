@@ -7,9 +7,8 @@ const submitBtn = document.querySelector(".add-todo");
 
 submitBtn.classList.add("intial-submit-btn-settings");
 
-
 // Listens for click input and invokes addTodoItem()
-inputElem.addEventListener("input",  (e) => {
+inputElem.addEventListener("input", (e) => {
   let userInput = e.target.value;
   if (userInput != "") {
     submitBtn.disabled = false;
@@ -18,7 +17,7 @@ inputElem.addEventListener("input",  (e) => {
   } else {
     submitBtn.disabled = true;
     submitBtn.classList.add("submit-btn-fail");
-    submitBtn.classList.remove("submit-btn-success");    
+    submitBtn.classList.remove("submit-btn-success");
   }
 });
 
@@ -64,12 +63,12 @@ const addTodoItem = (todoItem) => {
 submitBtn.addEventListener("click", () => {
   let userInput = inputElem.value;
   addTodoItem(userInput);
-})
+});
 
-const deleteTodoItem = (e) => {  
+const deleteTodoItem = (e) => {
   let targetBtn = e.target;
-  let isDeleteOk = confirm("Are you sure you want to delete this item?"); 
-  let parent = targetBtn.parentNode.parentNode; 
+  let isDeleteOk = confirm("Are you sure you want to delete this item?");
+  let parent = targetBtn.parentNode.parentNode;
   isDeleteOk ? parent.parentNode.removeChild(parent) : "";
 };
 
