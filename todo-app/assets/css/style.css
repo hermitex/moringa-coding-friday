@@ -4,6 +4,28 @@ button {
   cursor: pointer;
 }
 
+/* submit button default css settings */
+.intial-submit-btn-settings {
+  border: none;
+  padding: 0.5rem 0;
+  background-color: gray;
+  color: #0a0a0a;
+  cursor: progress;
+}
+
+.submit-btn-success {
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+}
+
+.submit-btn-fail {
+  border: none;
+  padding: 0.5rem 0;
+  background-color: gray;
+  color: #0a0a0a;
+  cursor: progress;
+}
 .wrapper {
   display: flex;
   flex-direction: column;
