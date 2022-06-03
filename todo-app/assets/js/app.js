@@ -36,22 +36,24 @@ const addTodoItem = (todoItem) => {
   let newTodoCheckData = document.createElement("td");
 
   // Create the delete and edit buttons and checkbox
-  let deletBtn = document.createElement("button");
-  deletBtn.innerHTML = `<i class="fa-solid fa-trash-can bg-danger"></i>`;
-  deletBtn.addEventListener("click", deleteTodoItem);
+  let deleteIcon = document.createElement("i");
+  deleteIcon.classList.add("fa-solid");
+  deleteIcon.classList.add("fa-trash-can");
+  deleteIcon.classList.add("bg-danger");
+  deleteIcon.addEventListener("click", deleteTodoItem);
 
-
-  let editBtn = document.createElement("button");
-  editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square bg-green"></i>`;
-
+  let editIcon = document.createElement("i");
+  editIcon.classList.add("fa-pen-to-square");
+  editIcon.classList.add("fa-solid");
+  editIcon.classList.add("bg-green");
 
   let check = document.createElement("input");
   check.addEventListener("click", markAsDone);
   check.type = "checkbox";
   check.classList.add("check");
 
-  newTodoEditData.appendChild(editBtn);
-  newTodoDeleteData.appendChild(deletBtn);
+  newTodoEditData.appendChild(editIcon);
+  newTodoDeleteData.appendChild(deleteIcon);
   newTodoCheckData.appendChild(check);
 
   newTodoItem.appendChild(newTodoCheckData);
