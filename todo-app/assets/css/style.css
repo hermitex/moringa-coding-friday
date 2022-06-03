@@ -1,7 +1,9 @@
 button {
   border: 0;
-  padding: 0.1rem 1rem;
+  padding: 0;
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 /* submit button default css settings */
@@ -41,11 +43,11 @@ button {
 }
 
 .bg-green {
-  background-color: green;
+  color: green;
 }
 
 .bg-danger {
-  background-color: red;
+  color: red;
 }
 
 .todo-list li > * {
@@ -54,4 +56,27 @@ button {
 
 .line-through {
   text-decoration: line-through 2px red;
+}
+
+table tr:nth-child(even) {
+  background-color: #6df26f;
+}
+
+table tr:nth-child(odd) {
+  background-color: rgb(46, 108, 108);
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 50vh;
+  
+}
+
+table td {
+  padding: 1rem 1rem;
+  width: 100vw;
+  background-color: none;
 }

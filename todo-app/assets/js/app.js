@@ -10,7 +10,7 @@ submitBtn.classList.add("intial-submit-btn-settings");
 // Listens for click input and invokes addTodoItem()
 inputElem.addEventListener("input", (e) => {
   let userInput = e.target.value;
-  if (userInput != "") {
+  if (userInput.trim() != "") {
     submitBtn.disabled = false;
     submitBtn.classList.add("submit-btn-success");
     submitBtn.classList.remove("submit-btn-fail");
@@ -23,24 +23,27 @@ inputElem.addEventListener("input", (e) => {
 
 // To add todo Item to the todo list
 const addTodoItem = (todoItem) => {
-  let newTodoItem = document.createElement("tr"); //<tr> </tr>
+  let editableDiv = document.createElement("div");
+  editableDiv.addEventListener("dblclick", makeContentEditable);
 
+  let newTodoItem = document.createElement("tr"); //<tr> </tr>
   let newTodoItemData = document.createElement("td");
   newTodoItemData.textContent = todoItem;
-
   let newTodoEditData = document.createElement("td");
+  editableDiv.appendChild(newTodoItemData);
+
   let newTodoDeleteData = document.createElement("td");
   let newTodoCheckData = document.createElement("td");
 
   // Create the delete and edit buttons and checkbox
   let deletBtn = document.createElement("button");
-  deletBtn.textContent = "Delete";
+  deletBtn.innerHTML = `<i class="fa-solid fa-trash-can bg-danger"></i>`;
   deletBtn.addEventListener("click", deleteTodoItem);
-  deletBtn.classList.add("bg-danger");
+
 
   let editBtn = document.createElement("button");
-  editBtn.textContent = "Edit";
-  editBtn.classList.add("bg-green");
+  editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square bg-green"></i>`;
+
 
   let check = document.createElement("input");
   check.addEventListener("click", markAsDone);
@@ -51,11 +54,10 @@ const addTodoItem = (todoItem) => {
   newTodoDeleteData.appendChild(deletBtn);
   newTodoCheckData.appendChild(check);
 
-  newTodoItem.appendChild(newTodoItemData);
+  newTodoItem.appendChild(newTodoCheckData);
+  newTodoItem.appendChild(editableDiv);
   newTodoItem.appendChild(newTodoEditData);
   newTodoItem.appendChild(newTodoDeleteData);
-  newTodoItem.appendChild(newTodoCheckData);
-
   todoContainer.appendChild(newTodoItem);
 };
 
@@ -83,4 +85,8 @@ const markAsDone = (e) => {
   } else {
     parent.parentNode.classList.remove("line-through");
   }
+};
+
+const makeContentEditable = (e) => {
+  e.target.setAttribute("contentEditable", "true"); //<div contentEditable="true"></div>
 };
