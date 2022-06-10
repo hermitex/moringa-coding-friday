@@ -1,3 +1,9 @@
+body{
+  /* margin: 0 5rem; */
+  height: 100vh;
+  overflow: hidden;
+  /* margin: 0 auto; */
+}
 i {
   cursor: pointer;
 }
@@ -5,10 +11,13 @@ i {
 /* submit button default css settings */
 .intial-submit-btn-settings {
   border: none;
-  padding: 0.5rem 0;
+  padding: 1.2rem 1rem;
+  font-size: 1.4rem;
   background-color: gray;
   color: #0a0a0a;
   cursor: progress;
+  letter-spacing: 0.2rem;
+  border-radius: 0.5rem;
 }
 
 .submit-btn-success {
@@ -35,7 +44,7 @@ i {
   display: flex;
   flex-direction: column;
   width: 70vw;
-  margin: 2rem auto;
+  margin: 0.5rem auto;
 }
 
 .bg-green {
@@ -67,33 +76,72 @@ table {
   font-size: 1.2rem;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 50vh;
-  
+  max-height: 45vh;
 }
 
 table td {
   padding: 1rem 1rem;
   width: 100vw;
   background-color: none;
-
-
 }
 
-table tr { 
+table tr {
   display: flex;
   flex-direction: row;
-  height: 5rem;
+  /* height: 5rem; */
   justify-content: center;
   align-items: center;
 }
 
-input{
+input {
   padding: 1rem 1rem;
   text-align: center;
   font-size: 1.4rem;
+  border-radius: 0.5rem;
+  border: 0.1rem inset rgb(46, 108, 108);
+  outline: none;
 }
 
-input::placeholder{
+input:focus {
+  border: 0.1rem solid #6df26f;
+}
+
+input::placeholder {
   font-size: 1.4rem;
   text-align: center;
+}
+
+.editable-div td {
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center; 
+  gap: 1rem;
+}
+
+.stats > div {
+  width: 100%;
+  border: 0.1rem solid #6df26f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  height: 15vh;
+}
+
+.stats > div small {
+  font-size: 1rem;
+  color: gray;
+  font-weight: bold;
+}
+
+.color-white{
+  color: white;
 }

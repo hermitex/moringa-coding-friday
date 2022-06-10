@@ -24,10 +24,12 @@ inputElem.addEventListener("input", (e) => {
 // To add todo Item to the todo list
 const addTodoItem = (todoItem) => {
   let editableDiv = document.createElement("div");
+  editableDiv.classList.add("editable-div");
   editableDiv.addEventListener("dblclick", makeContentEditable);
 
   let newTodoItem = document.createElement("tr"); //<tr> </tr>
   let newTodoItemData = document.createElement("td");
+  newTodoItemData.classList.add("color-white")
   newTodoItemData.textContent = todoItem;
   let newTodoEditData = document.createElement("td");
   editableDiv.appendChild(newTodoItemData);
